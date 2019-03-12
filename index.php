@@ -29,14 +29,14 @@
 
 </div>
 <div class="col-md-8">
-<table class="table table-bordered">
+<table class="table table-striped">
 <thead>
-<tr>
-<th>Nombre</th>
-<th>Descripción</th>
-<th>Responsable</th>
-<th>Fecha de creación</th>
-<th>Acciones</th>
+<tr class="bg-primary">
+<th scope="col">Nombre</th>
+<th scope="col">Descripción</th>
+<th scope="col">Responsable</th>
+<th scope="col">Fecha de creación</th>
+<th scope="col">Acciones</th>
 </tr>
 <tbody>
 <?php
