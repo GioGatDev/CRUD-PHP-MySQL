@@ -12,6 +12,7 @@ if(isset($_GET['id'])){
         $nombre = $row['Nombre'];
         $descripcion = $row['Descripcion'];
         $responsable = $row['responsable'];
+        $telefono = $row['telefono'];
 
     }
 }
@@ -22,8 +23,9 @@ if(isset($_POST['update'])){
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $responsable = $_POST['responsable'];
+    $telefono = $_POST['telefono'];
 
-    $query = "UPDATE tareas set Nombre = '$nombre', Descripcion = '$descripcion', responsable = '$responsable' WHERE id = $id";
+    $query = "UPDATE tareas set Nombre = '$nombre', Descripcion = '$descripcion', responsable = '$responsable', $telefono = '$telefono' WHERE id = $id";
     mysqli_query($conn, $query);
 
     $_SESSION['message'] = 'Tarea Actualizada';

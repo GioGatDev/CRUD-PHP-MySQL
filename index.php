@@ -21,7 +21,10 @@
 <textarea name="descripcion" rows="2" class="from-control" placeholder="Descripción"></textarea>
 </div>
 <div class="form-group">
-<input type="text" name="responsable" class="form-control" placeholder="Nombre del responsable" autofocus>
+<input type="text" name="responsable" class="form-control" placeholder="Nombre del responsable">
+</div>
+<div class="form-group">
+<input type="number" name="telefono" class="form-control" placeholder="Teléfono del responsable">
 </div>
 <input type="submit" class="btn btn-primary btn-block mb-3" name="guardar" value="Guardar">
 </form>
@@ -32,9 +35,11 @@
 <table class="table table-striped">
 <thead>
 <tr class="bg-primary">
+<th scope="col">#</th>
 <th scope="col">Nombre</th>
 <th scope="col">Descripción</th>
 <th scope="col">Responsable</th>
+<th scope="col">Teléfono</th>
 <th scope="col">Fecha de creación</th>
 <th scope="col">Acciones</th>
 </tr>
@@ -46,9 +51,11 @@ $result_tarea = mysqli_query($conn, $query);
 
 while($row = mysqli_fetch_array($result_tarea)){ ?>
 <tr>
+<td><?php echo $row['id']?></td>
 <td><?php echo $row['Nombre']?></td>
 <td><?php echo $row['Descripcion']?></td>
 <td><?php echo $row['responsable']?></td>
+<td><?php echo $row['telefono']?></td>
 <td><?php echo $row['fechacreacion']?></td>
 <td>
 <a href="editar.php?id=<?php echo $row['id']?>" class="btn btn-primary mb-1"><i class="fas fa-edit"></i></a>
