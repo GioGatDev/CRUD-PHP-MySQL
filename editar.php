@@ -25,7 +25,7 @@ if(isset($_POST['update'])){
     $responsable = $_POST['responsable'];
     $telefono = $_POST['telefono'];
 
-    $query = "UPDATE tareas set Nombre = '$nombre', Descripcion = '$descripcion', responsable = '$responsable', $telefono = '$telefono' WHERE id = $id";
+    $query = "UPDATE tareas set Nombre = '$nombre', Descripcion = '$descripcion', responsable = '$responsable', telefono = '$telefono' WHERE id = $id";
     mysqli_query($conn, $query);
 
     $_SESSION['message'] = 'Tarea Actualizada';
@@ -49,6 +49,9 @@ if(isset($_POST['update'])){
     </div>
     <div class="form-group">
        <input type="text" name="responsable" value="<?php echo $responsable; ?>" class="form-control" placeholder="Actualizar responsable de la tarea">
+    </div>
+    <div class="form-group">
+       <input type="text" name="telefono" value="<?php echo $telefono; ?>" class="form-control" placeholder="Actualizar teléfono">
     </div>
    <button class="btn btn-success" name="update">
    Actualizar
