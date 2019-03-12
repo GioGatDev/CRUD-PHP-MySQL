@@ -4,6 +4,14 @@
 <div class="container p-4"> 
 <div class="row">
 <div class="col-md-4 mb-3">
+<?php if(isset($_SESSION['message'])){?>
+    <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
+    <?= $_SESSION['message']?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<?php session_unset(); } ?>
 <div class="card card-body">
 <form action="guardar.php" method="POST">
 <div class="form-group">
@@ -15,15 +23,7 @@
 <div class="form-group">
 <input type="text" name="responsable" class="form-control" placeholder="Nombre del responsable" autofocus>
 </div>
-<input type="submit" class="btn btn-primary btn-block mb-3" name="guardar" value="guardartarea">
-<?php if(isset($_SESSION['message'])){?>
-    <div class="alert alert-<?= $_SESSION['messaje_type']?> alert-dismissible fade show" role="alert">
-    <?= $_SESSION['message']?>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<?php session_unset(); } ?>
+<input type="submit" class="btn btn-primary btn-block mb-3" name="guardar" value="Guardar">
 </form>
 </div>
 
@@ -51,8 +51,8 @@ while($row = mysqli_fetch_array($result_tarea)){ ?>
 <td><?php echo $row['responsable']?></td>
 <td><?php echo $row['fechacreacion']?></td>
 <td>
-<a href="edit.php?id=<?php echo $row['id']?>">Editar</a>
-<a href="eliminar.php?id=<?php echo $row['id']?>">Eliminar</a>
+<a href="editar.php?id=<?php echo $row['id']?>" class="btn btn-primary mb-1"><i class="fas fa-edit"></i></a>
+<a href="eliminar.php?id=<?php echo $row['id']?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
 </td>
 </tr>
 <?php } ?>

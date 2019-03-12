@@ -13,7 +13,7 @@ if (isset($_POST['guardar'])) {
     }
 
     $_SESSION['message'] = 'Guardado exitosamente';
-    $_SESSION['message_type'] = 'sucess';
+    $_SESSION['message_type'] = 'success';
     header("Location: index.php");
 } 
 ?>
